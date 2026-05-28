@@ -7,20 +7,20 @@ export const profile = {
   username: "alroqi",
 
   // النص اللي تحت الاسم (البايو)
-  bio: "Developer | Owner",
+  bio: "Bug hunter",
 
   // النص الصغير (متى انضممت / status)
   tagline: "currently doing nothing",
 
   // عدد المشاهدات (للديكور فقط)
-  views: 3390,
+  views: 511,
 
   // ============================================
   // 🖼️ الأفتار - حط الصورة في: public/avatar/
   // مثال: "/avatar/avatar.png"
   // اتركها فاضية "" عشان تظهر الأيقونة الافتراضية
   // ============================================
-  avatar: "",
+  avatar: "https://j.top4top.io/p_3800rxqy41.jpg",
 
   // ============================================
   // 🎵 الأغنية - حط الملف في: public/audio/song.mp3
@@ -46,6 +46,6 @@ export const profile = {
     discord: "", // مثال: "https://discord.com/users/123"
     instagram: "", // مثال: "https://instagram.com/alroqi"
     twitter: "", // مثال: "https://twitter.com/alroqi"
-    letterboxd: "", // مثال: "https://letterboxd.com/alroqi"
+    letterboxd: "https://letterboxd.com/_b0/", // مثال: "https://letterboxd.com/alroqi"
   },
 };
