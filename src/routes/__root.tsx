@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Alroqi" },
+      { name: "description", content: "Alroqi is a personal website that displays a text avatar, social media links, and a custom background song." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Alroqi" },
+      { property: "og:description", content: "Alroqi is a personal website that displays a text avatar, social media links, and a custom background song." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Alroqi" },
+      { name: "twitter:description", content: "Alroqi is a personal website that displays a text avatar, social media links, and a custom background song." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/2G4T8hKMK0dweCuRUrXDPZfqdzm2/social-images/social-1779940760177-Dark_Katana_Banner.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/2G4T8hKMK0dweCuRUrXDPZfqdzm2/social-images/social-1779940760177-Dark_Katana_Banner.webp" },
     ],
     links: [
       {
