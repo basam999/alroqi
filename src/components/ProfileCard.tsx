@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { User, Eye } from "lucide-react";
 import { SiDiscord, SiInstagram, SiX, SiLetterboxd } from "@icons-pack/react-simple-icons";
 import { profile } from "@/config/profile";
+import { supabase } from "@/integrations/supabase/client";
 
 const socialMeta = [
   { key: "twitter", Icon: SiX, label: "Twitter" },
@@ -11,9 +12,26 @@ const socialMeta = [
 ] as const;
 
 export function ProfileCard() {
-  const [views, setViews] = useState(profile.views);
+  const [views, setViews] = useState<number | null>(null);
   useEffect(() => {
-    setViews((v) => v + 1);
+    let cancelled = false;
+    (async () => {
+      const { data, error } = await supabase.rpc("increment_views");
+      if (cancelled) return;
+      if (!error && typeof data === "number") {
+        setViews(data);
+      } else {
+        const { data: row } = await supabase
+          .from("site_stats")
+          .select("views")
+          .eq("id", 1)
+          .single();
+        if (!cancelled && row) setViews(Number(row.views));
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   const activeSocials = socialMeta.filter(
@@ -61,7 +79,7 @@ export function ProfileCard() {
       {/* Views */}
       <div className="mt-6 flex items-center gap-1.5 text-white/40 text-xs">
         <Eye className="h-3.5 w-3.5" />
-        <span>{views.toLocaleString()}</span>
+        <span>{views !== null ? views.toLocaleString() : "—"}</span>
       </div>
     </div>
   );
