@@ -33,8 +33,11 @@ function Index() {
   };
 
   useEffect(() => {
-    if (!entered) return;
-    const onKey = () => {};
+    if (entered) return;
+    const onKey = (e: KeyboardEvent) => {
+      e.preventDefault();
+      handleEnter();
+    };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [entered]);
